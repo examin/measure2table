@@ -1,13 +1,17 @@
 package com.sport;
 
 public class ProductStandardMeasure {
-    private int id;;
+    private int id;
     private String measureName;
     private int measureFunctionId;
     private String measureField;
     private String productName;
     int subscriberId;
     int active;
+    String fullString;
+
+
+    //todo : not yet implemented as worksheet
     /* Note : this class require all filed to be non-blank 18thApr2018*/
     public ProductStandardMeasure(int id, String measureName, int measureFunctionId, String measureField, String productName, int subscriberId, int active) {
         this.id = id;
@@ -17,6 +21,7 @@ public class ProductStandardMeasure {
         this.productName = productName;
         this.subscriberId = subscriberId;
         this.active = active;
+
     }
 
     public int getId() {
@@ -73,5 +78,13 @@ public class ProductStandardMeasure {
 
     public void setActive(int active) {
         this.active = active;
+    }
+
+    public String getFullString() {
+        return fullString;
+    }
+
+    public void setFullString(String fullString) {
+        this.fullString = fullString;
     }
 }

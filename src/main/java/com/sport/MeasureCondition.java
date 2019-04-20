@@ -1,11 +1,12 @@
 package com.sport;
 
+
 public class MeasureCondition {
     private int conditionId;
-    private  String conditionLeftField	;
-    private  String conditionRightField	;
-    private  String conditionRightValue	;
-    private  int measureOperationId	;
+    private String conditionLeftField	;
+    private String conditionRightField	;
+    private String conditionRightValue	;
+    private int measureOperationId	;
     private int active;
     private String fullString;
 
