@@ -41,7 +41,7 @@ public class Measure2table {
 
         //todo 7 : compoundedMeasuresStatement worksheet
         TreeMap<String, String> compoundedMeasuresStatementMap = dividedAtomicAndCompundedArray[1];
-
+        HashMap<String,String> compoundedMeasuresIdsStatementMap = Utils.putIdsIntoCompounded(compoundedMeasuresStatementMap);
 
 
 //        HashMap<String, ProductStandardMeasure>[] productStandardMeasureMap = getProductStandardMeasureMap(allMeasures);
@@ -112,7 +112,8 @@ public class Measure2table {
 
     private static HashMap<String, String> getFakeNamedMeasure(String str,TreeMap<String,String> atomicMeasures) {
         HashMap<String, String> atomicMeasure = new HashMap<>();
-        Pattern pattern = Pattern.compile("(avg|count|min|max|sum)");  // insert your pattern here
+        HashMap<String,Integer> atomicMeasureIdMap = Utils.atomicMeasureIdMap(atomicMeasure);
+        Pattern pattern = Pattern.compile("(avg|count|min|max|sum)");
         Matcher matcher = pattern.matcher(str);
         int numOfAgg = 0;
         while (matcher.find()) {
@@ -150,10 +151,13 @@ public class Measure2table {
                     }
                 }
             }
-            System.out.println(sb.toString());
+          //  System.out.println(sb.toString());
             if(!atomicMeasures.containsKey(sb.toString())){
                 atomicMeasure.put(sb.toString(),"Measure"+fakeNamePointer++);
+                Utils.insert2AtomicMeasureIdMap(sb.toString());
             }
+
+
 
          }
         if (!(numOfAgg > 0)) {
