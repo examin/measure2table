@@ -36,7 +36,11 @@ public class Measure2table {
 
         //todo 5 : Make MeasureConditionMapping For Atomic Measure from atomicMeasuresStatement
         TreeMap<String, String> atomicMeasuresStatementMap = dividedAtomicAndCompundedArray[0];
-        //todo 6 : ProductStandardMeasure worksheet
+
+        TreeMap<String,ArrayList<MeasureConditionMapping>> measureConditionMappingId = Utils.getMeasureConditionIdFromStament(measureConditionMap);
+
+
+        //todo 5 : ProductStandardMeasure worksheet
         TreeMap<String,ProductStandardMeasure> productStandardMeasures = atomicMeasuresStatementMap2ProductStandardSheet(atomicMeasuresStatementMap, measureAggregationFunctionMap);
 
         //todo 7 : compoundedMeasuresStatement worksheet
@@ -112,7 +116,7 @@ public class Measure2table {
 
     private static HashMap<String, String> getFakeNamedMeasure(String str,TreeMap<String,String> atomicMeasures) {
         HashMap<String, String> atomicMeasure = new HashMap<>();
-        HashMap<String,Integer> atomicMeasureIdMap = Utils.atomicMeasureIdMap(atomicMeasure);
+        TreeMap<String,Integer> atomicMeasureIdMap = Utils.atomicMeasureIdMap(atomicMeasure);
         Pattern pattern = Pattern.compile("(avg|count|min|max|sum)");
         Matcher matcher = pattern.matcher(str);
         int numOfAgg = 0;
