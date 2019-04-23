@@ -2,16 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d5b8922-ab20-43cc-ba36-5a438ccaad67" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sport/MeasureConditionMapping.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sport/Utils/ExcelUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sport/MeasuresMicro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/com/sport/Measure2table.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/sport/Measure2table.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/sport/MeasureAggregationFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/sport/MeasureAggregationFunction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/sport/MeasureLogicalOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/sport/MeasureLogicalOperation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/com/sport/Utils/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/sport/Utils/Utils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/sport/measureArithmeticOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/sport/measureArithmeticOperation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sport/Measure2table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sport/Measure2table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sport/MeasureAggregationFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sport/MeasureAggregationFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sport/MeasureLogicalOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sport/MeasureLogicalOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sport/Utils/ExcelUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sport/Utils/ExcelUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sport/Utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sport/Utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sport/measureArithmeticOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sport/measureArithmeticOperation.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -29,11 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/Measure2table.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1770">
-              <caret line="118" column="32" lean-forward="true" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="50" />
+            <state relative-caret-position="224">
+              <caret line="367" column="1" lean-forward="true" selection-start-line="367" selection-start-column="1" selection-end-line="367" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -41,11 +47,66 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/MeasureCondition.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="18" lean-forward="true" selection-start-column="18" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/MeasureAggregationFunction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1">
+              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+              <folding>
+                <element signature="e#515#516#0" expanded="true" />
+                <element signature="e#540#541#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/MeasureConditionMapping.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+              <folding>
+                <element signature="e#691#692#0" expanded="true" />
+                <element signature="e#719#720#0" expanded="true" />
+                <element signature="e#752#753#0" expanded="true" />
+                <element signature="e#784#785#0" expanded="true" />
+                <element signature="e#831#832#0" expanded="true" />
+                <element signature="e#873#874#0" expanded="true" />
+                <element signature="e#915#916#0" expanded="true" />
+                <element signature="e#956#957#0" expanded="true" />
+                <element signature="e#1021#1022#0" expanded="true" />
+                <element signature="e#1081#1082#0" expanded="true" />
+                <element signature="e#1119#1120#0" expanded="true" />
+                <element signature="e#1156#1157#0" expanded="true" />
+                <element signature="e#1213#1214#0" expanded="true" />
+                <element signature="e#1265#1266#0" expanded="true" />
+                <element signature="e#1305#1306#0" expanded="true" />
+                <element signature="e#1341#1342#0" expanded="true" />
+                <element signature="e#1399#1400#0" expanded="true" />
+                <element signature="e#1449#1450#0" expanded="true" />
+                <element signature="e#1479#1480#0" expanded="true" />
+                <element signature="e#1508#1509#0" expanded="true" />
+                <element signature="e#1549#1550#0" expanded="true" />
+                <element signature="e#1585#1586#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/Utils/ExcelUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+            <state relative-caret-position="38">
+              <caret line="41" column="54" lean-forward="true" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -56,86 +117,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/Utils/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="62" column="7" lean-forward="true" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
+            <state relative-caret-position="148">
+              <caret line="154" column="48" lean-forward="true" selection-start-line="154" selection-start-column="48" selection-end-line="154" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/StringBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="89" selection-start-line="89" selection-end-line="89" />
-              <folding>
-                <element signature="e#2871#2872#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/AbstractStringBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="68" selection-start-line="68" selection-end-line="68" />
-              <folding>
-                <element signature="e#1327#1328#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Object.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/MeasureConditionMapping.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="137" selection-start-line="10" selection-start-column="137" selection-end-line="10" selection-end-column="137" />
-              <folding>
-                <element signature="e#263#264#0" expanded="true" />
-                <element signature="e#288#289#0" expanded="true" />
-                <element signature="e#719#720#0" expanded="true" />
-                <element signature="e#784#785#0" expanded="true" />
-                <element signature="e#873#874#0" expanded="true" />
-                <element signature="e#956#957#0" expanded="true" />
-                <element signature="e#1081#1082#0" expanded="true" />
-                <element signature="e#1156#1157#0" expanded="true" />
-                <element signature="e#1265#1266#0" expanded="true" />
-                <element signature="e#1341#1342#0" expanded="true" />
-                <element signature="e#1449#1450#0" expanded="true" />
-                <element signature="e#1508#1509#0" expanded="true" />
-                <element signature="e#1585#1586#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/Solution.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -146,40 +132,42 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pat</find>
-      <find>sum|</find>
-      <find>yes</find>
-      <find>no</find>
-      <find>:</find>
-      <find>num of agg</find>
-      <find>num of agg 3</find>
-      <find>sum</find>
-      <find>sum ( CASE WHEN ACCN_IN_FORC &gt; 0 AND PREV_DAY_ACCN_IN_FORC &gt;0 AND PREV_DAY_DELN_FK &gt;= 2 THEN NO_OF_ALL_ACCN ELSE 0 END )</find>
-      <find>num of agg 6</find>
-      <find>MeasureCondi</find>
-      <find>num of</find>
-      <find>sum ( IF( DELN_FK = 1 AND PREV_DAY_DELN_FK &gt;= 2 AND ACCN_IN_FORC &gt;0 AND PREV_DAY_ACCN_IN_FORC &gt;0 )</find>
-      <find>sum ( IF( DELN_FK = 1 AND PREV_DAY_DELN_FK &gt;= 2 AND ACCN_IN_FORC &gt;0 AND PREV_DAY_ACCN_IN_FORC &gt;0 ) THEN( NO_OF_ALL_ACCN ) ELSE(0) )</find>
-      <find>*</find>
-      <find>*&quot;</find>
-      <find>compounded</find>
-      <find>fake</find>
-      <find>sb</find>
-      <find>system</find>
+      <find>DELN_FK&gt;10</find>
+      <find>Choore smabhal</find>
+      <find>atomicMeasure</find>
+      <find>divide atomic ad compunded error</find>
+      <find>system.out.pr</find>
+      <find>measureId</find>
+      <find>int numberOfSheets = workbook.getNumberOfSheets();</find>
       <find>atomicMeasureIdMap</find>
-      <find>((?&lt;=CASE WHEN )|IF.?\()(.*)(?=.*THEN)</find>
-      <find>and</find>
-      <find>Pattern.compile</find>
-      <find>Pattern.com</find>
-      <find>Pattern.</find>
-      <find>conditionJoin</find>
-      <find>string</find>
-      <find>Pattern.compile(.*).matcher</find>
+      <find>getFakeNamedMeasure</find>
+      <find>atomicMeasureIdMap</find>
+      <find>conditionINdex</find>
+      <find>flag</find>
+      <find>measureConditionMap.</find>
+      <find>have any condition</find>
+      <find>.replaceAll</find>
+      <find>replaceAll</find>
+      <find>.repla</find>
+      <find>Stack</find>
+      <find>remove</find>
+      <find>testSet</find>
+      <find>Axslogic</find>
+      <find>=|</find>
+      <find>allMeas</find>
+      <find>Fai</find>
+      <find>system</find>
+      <find>temp</find>
+      <find>DELN_FK &lt;= 10</find>
+      <find>system.out</find>
+      <find>replace</find>
+      <find>allMeasures(</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -194,17 +182,18 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sport/KMPStringMatching.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sport/Solution.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sport/compoundedMeasuresStatement.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sport/MeasureLogicalOperation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sport/MeasureAggregationFunction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sport/measureArithmeticOperation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sport/MeasureCondition.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sport/ProductStandardMeasure.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/sport/Utils/GFG.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sport/MeasureConditionMapping.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sport/MeasureLogicalOperation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sport/MeasuresMicro.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sport/MeasureAggregationFunction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sport/measureArithmeticOperation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sport/Utils/ExcelUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sport/Utils/Utils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sport/Measure2table.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sport/Utils/ExcelUtils.java" />
       </list>
     </option>
   </component>
@@ -219,35 +208,36 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="measure2table" type="b2602c69:ProjectViewProjectNode" />
-              <item name="measure2table" type="462c0819:PsiDirectoryNode" />
+              <item name="measure2table" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="measure2table" type="b2602c69:ProjectViewProjectNode" />
-              <item name="measure2table" type="462c0819:PsiDirectoryNode" />
+              <item name="measure2table" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="measure2table" type="b2602c69:ProjectViewProjectNode" />
-              <item name="measure2table" type="462c0819:PsiDirectoryNode" />
+              <item name="measure2table" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="measure2table" type="b2602c69:ProjectViewProjectNode" />
-              <item name="measure2table" type="462c0819:PsiDirectoryNode" />
+              <item name="measure2table" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="measure2table" type="b2602c69:ProjectViewProjectNode" />
-              <item name="measure2table" type="462c0819:PsiDirectoryNode" />
+              <item name="measure2table" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -255,7 +245,7 @@
             </path>
             <path>
               <item name="measure2table" type="b2602c69:ProjectViewProjectNode" />
-              <item name="measure2table" type="462c0819:PsiDirectoryNode" />
+              <item name="measure2table" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -266,13 +256,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555871947583" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556023755443" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -359,17 +348,19 @@
       <updated>1555062508144</updated>
       <workItem from="1555062511284" duration="2484000" />
       <workItem from="1555478184862" duration="33741000" />
+      <workItem from="1555911102002" duration="19052000" />
+      <workItem from="1555936495398" duration="27598000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36225000" />
+    <option name="totallyTimeSpent" value="82875000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1366" height="741" extended-state="6" />
+    <frame x="0" y="0" width="1024" height="768" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28787878" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.21283096" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -381,9 +372,49 @@
       <window_info id="Project Explorer" order="9" />
       <window_info id="Job Explorer" order="10" weight="0.32954547" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.5146104" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24675325" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39935064" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.5139319" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32662538" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.51547986" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32972136" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32954547" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32817337" />
+      <window_info anchor="bottom" id="DB Execution Console" order="14" />
+      <window_info anchor="bottom" id="Console" order="15" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.091649696" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Codota" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Gradle" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info anchor="right" id="Theme Preview" order="10" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.21283096" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Learn" order="7" />
+      <window_info id="DB Browser" order="8" />
+      <window_info id="Project Explorer" order="9" />
+      <window_info id="Job Explorer" order="10" weight="0.32954547" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.5278638" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37770897" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.45820433" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -407,7 +438,7 @@
       <window_info anchor="right" id="Database" order="8" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info anchor="right" id="Theme Preview" order="10" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -417,15 +448,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sport/Measure2table.java</url>
-          <line>51</line>
+          <line>322</line>
           <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sport/Utils/Utils.java</url>
-          <line>174</line>
-          <properties />
-          <option name="timeStamp" value="74" />
+          <option name="timeStamp" value="126" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -474,52 +499,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/measureArithmeticOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/MeasureAggregationFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="3" selection-start-column="1" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/MeasureLogicalOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-          <folding>
-            <element signature="e#167#168#0" expanded="true" />
-            <element signature="e#192#193#0" expanded="true" />
-            <element signature="e#225#226#0" expanded="true" />
-            <element signature="e#253#254#0" expanded="true" />
-            <element signature="e#296#297#0" expanded="true" />
-            <element signature="e#335#336#0" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#455#456#0" expanded="true" />
-            <element signature="e#485#486#0" expanded="true" />
-            <element signature="e#514#515#0" expanded="true" />
-            <element signature="e#555#556#0" expanded="true" />
-            <element signature="e#591#592#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/compoundedMeasuresStatement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/MeasureCondition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -534,16 +517,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/Utils/GFG.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/Utils/GFG.java" />
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/regex/Matcher.java" />
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Object.java" />
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/AbstractStringBuilder.java" />
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/StringBuilder.java" />
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -553,91 +531,127 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
+        <state relative-caret-position="285">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/regex/Matcher.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/measureArithmeticOperation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="535" selection-start-line="535" selection-end-line="535" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/MeasureConditionMapping.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="137" selection-start-line="10" selection-start-column="137" selection-end-line="10" selection-end-column="137" />
+        <state relative-caret-position="-308">
+          <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
           <folding>
-            <element signature="e#263#264#0" expanded="true" />
-            <element signature="e#288#289#0" expanded="true" />
-            <element signature="e#719#720#0" expanded="true" />
-            <element signature="e#784#785#0" expanded="true" />
-            <element signature="e#873#874#0" expanded="true" />
-            <element signature="e#956#957#0" expanded="true" />
-            <element signature="e#1081#1082#0" expanded="true" />
-            <element signature="e#1156#1157#0" expanded="true" />
-            <element signature="e#1265#1266#0" expanded="true" />
-            <element signature="e#1341#1342#0" expanded="true" />
-            <element signature="e#1449#1450#0" expanded="true" />
-            <element signature="e#1508#1509#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
+            <element signature="e#406#407#0" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#556#557#0" expanded="true" />
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#614#615#0" expanded="true" />
+            <element signature="e#642#643#0" expanded="true" />
+            <element signature="e#674#675#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
+            <element signature="e#744#745#0" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+            <element signature="e#808#809#0" expanded="true" />
+            <element signature="e#837#838#0" expanded="true" />
+            <element signature="e#878#879#0" expanded="true" />
+            <element signature="e#914#915#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Object.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/MeasuresMicro.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="105">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/AbstractStringBuilder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/MeasureLogicalOperation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
+        <state relative-caret-position="225">
+          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
           <folding>
-            <element signature="e#1327#1328#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/StringBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
-          <folding>
-            <element signature="e#2871#2872#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/Utils/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="62" column="7" lean-forward="true" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/Measure2table.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1770">
-          <caret line="118" column="32" lean-forward="true" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#440#441#0" expanded="true" />
+            <element signature="e#496#497#0" expanded="true" />
+            <element signature="e#526#527#0" expanded="true" />
+            <element signature="e#555#556#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/Utils/ExcelUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+        <state relative-caret-position="38">
+          <caret line="41" column="54" lean-forward="true" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/MeasureConditionMapping.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding>
+            <element signature="e#691#692#0" expanded="true" />
+            <element signature="e#719#720#0" expanded="true" />
+            <element signature="e#752#753#0" expanded="true" />
+            <element signature="e#784#785#0" expanded="true" />
+            <element signature="e#831#832#0" expanded="true" />
+            <element signature="e#873#874#0" expanded="true" />
+            <element signature="e#915#916#0" expanded="true" />
+            <element signature="e#956#957#0" expanded="true" />
+            <element signature="e#1021#1022#0" expanded="true" />
+            <element signature="e#1081#1082#0" expanded="true" />
+            <element signature="e#1119#1120#0" expanded="true" />
+            <element signature="e#1156#1157#0" expanded="true" />
+            <element signature="e#1213#1214#0" expanded="true" />
+            <element signature="e#1265#1266#0" expanded="true" />
+            <element signature="e#1305#1306#0" expanded="true" />
+            <element signature="e#1341#1342#0" expanded="true" />
+            <element signature="e#1399#1400#0" expanded="true" />
+            <element signature="e#1449#1450#0" expanded="true" />
+            <element signature="e#1479#1480#0" expanded="true" />
+            <element signature="e#1508#1509#0" expanded="true" />
+            <element signature="e#1549#1550#0" expanded="true" />
+            <element signature="e#1585#1586#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/Utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="154" column="48" lean-forward="true" selection-start-line="154" selection-start-column="48" selection-end-line="154" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/MeasureCondition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" lean-forward="true" selection-start-column="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/MeasureAggregationFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding>
+            <element signature="e#515#516#0" expanded="true" />
+            <element signature="e#540#541#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sport/Measure2table.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="367" column="1" lean-forward="true" selection-start-line="367" selection-start-column="1" selection-end-line="367" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

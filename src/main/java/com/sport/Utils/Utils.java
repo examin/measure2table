@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 public class Utils {
     public static int countForAtomicId = 1;
     public static TreeMap<String, Integer> atomicMeasureIdMap = new TreeMap<>();
+    public static HashSet<String> testSet = new HashSet<>();
 
     public static int getMeasureAggIdFromStament(String str, HashMap<String, Integer> measureAggregationFunctionMap) {
         String regex = "(avg|count|min|max|sum)";
@@ -45,21 +46,19 @@ public class Utils {
             field = matcher.group(2);
             countForTest++;
         }
-        if(countForTest==0){
-          noThenmatcher = noThenpattern.matcher(str);
-          if(noThenmatcher.find())
-          {
-              System.out.println(noThenmatcher.group(0));
-          }
-          else{
-              System.out.println("Failed");
-          }
+        if (countForTest == 0) {
+            noThenmatcher = noThenpattern.matcher(str);
+            if (noThenmatcher.find()) {
+                field = noThenmatcher.group(2);
+            } else {
+                System.out.println("Failed");
+            }
 
         }
-        return field.replaceAll("\\(|\\)","").trim();
+        return field.replaceAll("\\(|\\)", "").trim();
     }
 
-    public static TreeMap<String, Integer> atomicMeasureIdMap(HashMap<String, String> atomicMeasure) {
+    public static TreeMap<String, Integer> atomicMeasureIdMap(TreeMap<String, String> atomicMeasure) {
         TreeSet<String> itr = new TreeSet<>(atomicMeasure.keySet());
         for (String curr : itr) {
             atomicMeasureIdMap.put(curr, countForAtomicId++);
@@ -67,10 +66,6 @@ public class Utils {
         return atomicMeasureIdMap;
     }
 
-    public static boolean insert2AtomicMeasureIdMap(String curr) {
-        atomicMeasureIdMap.put(curr, countForAtomicId++);
-        return true;
-    }
 
     public static HashMap<String, String> putIdsIntoCompounded(TreeMap<String, String> compoundedMeasuresStatementMap) {
         HashMap<String, String> compoundedMeasuresIdsStatementMap = new HashMap<>();
@@ -130,48 +125,74 @@ public class Utils {
         TreeMap<String, ArrayList<MeasureConditionMapping>> measureConditionMappingIds = new TreeMap<>();
         HashSet<String> itr = new HashSet<>(atomicMeasureIdMap.keySet());
         int counter = 1;
-        int mappingCounter= 1;
+        int mappingCounter = 1;
         for (String curr : itr) {
 //            https://regex101.com/r/LfCN1S/1
-            String whereCondregex = "((?<=CASE WHEN )|IF.?\\()(.*)(?=.*THEN)";
+            String whereCondregex = "((?<=CASE WHEN )|(?<=IF))(.*)(?=.* THEN)";
             Pattern whereCondPattern = Pattern.compile(whereCondregex, Pattern.MULTILINE);
             Matcher whereCondMatcher = whereCondPattern.matcher(curr);
             Boolean flag = false;
-            while (whereCondMatcher.find()) {
+            if (whereCondMatcher.find()) {
                 ArrayList<MeasureConditionMapping> conditionsForCurrString = new ArrayList<>();
                 int index = 1;
                 flag = true;
-                String toMakePartsOf = whereCondMatcher.group(2);
+                String toMakePartsOf = whereCondMatcher.group(0);
 //                System.out.println(toMakePartsOf);
+                toMakePartsOf = Utils.removeOuterBraces(toMakePartsOf);
                 String operRegex = "(?= AND )|(?= OR )";
                 String[] conditions = toMakePartsOf.split(operRegex);
+                String repairRegex = "(=|!=|>=|<=|>|<|in|any|not in|between|not between|like)(\\d)";
                 for (String currCondition : conditions) {
                     //System.out.println(currCondition);
                     int measureId = counter;
-                    int measureConditionid = atomicMeasureIdMap.get(curr.replace(" (and|or) ", ""));
-                    int conditionIndex = index;
+                    String getAtomicMeasureIdOf = Utils.prepareConditionStr(currCondition);
+                    testSet.add(getAtomicMeasureIdOf);
+                    //int measureConditionid = measureConditionMap.get(getAtomicMeasureIdOf).getConditionId();
+                    int measureConditionid = 0;
+                            try{
+                             measureConditionid = measureConditionMap.get(getAtomicMeasureIdOf).getConditionId();
+                            }
+                            catch (Exception e){
+                               System.out.println(getAtomicMeasureIdOf);
+                            }
+                    int conditionIndex = index++;
                     String conditionJoin;
-                    String regex =  " (AND|OR) ";
+                    String regex = " (AND|OR) ";
                     Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
                     Matcher matcher = pattern.matcher(currCondition);
-                    if(matcher.find()) {
+                    if (matcher.find()) {
                         conditionJoin = matcher.group(1);
-                    }
-                    else conditionJoin = "";
+                    } else conditionJoin = "";
                     int active = 1;
-                    conditionsForCurrString.add(new  MeasureConditionMapping(mappingCounter++, measureId, measureConditionid, conditionIndex, conditionJoin, active));
+                    conditionsForCurrString.add(new MeasureConditionMapping(mappingCounter++, measureId, measureConditionid, conditionIndex, conditionJoin, active));
                     //System.out.println("* "+conditionJoin);
 
                 }
-                measureConditionMappingIds.put(curr,conditionsForCurrString);
+                measureConditionMappingIds.put(curr, conditionsForCurrString);
             }
             if (flag == false) {
-                //System.out.println("Statement don't have any condition\n# "+curr);
+                //System.out.println("Statement don't have any condition\n# " + curr);
             }
             // System.out.println(curr);
             counter++;
         }
-
+//        for (String o : testSet) {
+//            System.out.println(o);
+//        }
         return measureConditionMappingIds;
+    }
+
+    private static String removeOuterBraces(String str) {
+        if(str.charAt(0)=='('){
+            int strLength = str.length();
+            if(str.charAt(strLength-1)==')'){
+                return str.substring(1,strLength-1);
+            }
+        }
+        return str;
+    }
+    public static String prepareConditionStr(String currCondition){
+        String repairRegex = "(=|!=|>=|<=|>|<|in|any|not in|not between|between|like)(\\d)";
+        return currCondition.replaceAll("(?i) (and|or) ", "").replaceAll(repairRegex,"$1 $2").trim();
     }
 }

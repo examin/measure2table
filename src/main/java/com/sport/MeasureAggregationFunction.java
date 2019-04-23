@@ -1,9 +1,20 @@
 package com.sport;
 //todo ; not populated yet
-public class MeasureAggregationFunction {
-   private int id;
-   private  String aggregationFunction;
-   private int active;
+public class MeasureAggregationFunction implements MeasuresMicro {
+    private String className = "MeasureAggregationFunction";
+    private int id;
+    private String value;
+    private int active;
+
+    public MeasureAggregationFunction(String className, int id, String value, int active) {
+        this.id = id;
+        this.value = value;
+        this.active = active;
+    }
+
+    public String getClassName() {
+        return className;
+    }
 
     public int getId() {
         return id;
@@ -13,12 +24,12 @@ public class MeasureAggregationFunction {
         this.id = id;
     }
 
-    public String getAggregationFunction() {
-        return aggregationFunction;
+    public String getValue() {
+        return value;
     }
 
-    public void setAggregationFunction(String aggregationFunction) {
-        this.aggregationFunction = aggregationFunction;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     public int getActive() {

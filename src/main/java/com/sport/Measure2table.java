@@ -1,5 +1,6 @@
 package com.sport;
 
+import com.sport.Utils.ExcelUtils;
 import com.sport.Utils.Utils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -18,40 +19,103 @@ public class Measure2table {
 
     public static void main(String[] args) {
         HashMap<String, String> allMeasures = getAllMeasures();
+        getUniqueMeasureFieldConditions(allMeasures);
 
         //todo 1: MeasureLogicalOperations worksheet
         HashMap<String, Integer> measureLogicalOperationMap = getMeasureLogicalOperation();
+        ExcelUtils.createExcel123(measureLogicalOperationMap,"MeasureLogicalOperation",true);
 
         //todo 2:  measureAggregationFunction workheet
         HashMap<String, Integer> measureAggregationFunctionMap = getMeasureAggregationFunction();
+        ExcelUtils.createExcel123(measureAggregationFunctionMap,"MeasureAggregationFunction",false);
 
         //todo 3:  measureArithmeticOperation worksheet
         HashMap<String, Integer> measureArithmeticOperationMap = getMeasureArithmeticOperation();
+        ExcelUtils.createExcel123(measureArithmeticOperationMap,"MeasureArithmeticOperation",false);
 
         //this getMeasureCondition read and then use logicalOperations
         //todo 4 : MeasureConditionMap have MeasureCondition... worksheet
-        HashMap<String, MeasureCondition> measureConditionMap = getMeasureCondition(measureLogicalOperationMap);
+       // HashSet<String> uniqueMeasureFieldConditionSet = getUniqueMeasureFieldConditions(allMeasures);
+        HashMap<String, MeasureCondition> measureConditionMap = getMeasureCondition(measureLogicalOperationMap,getUniqueMeasureFieldConditions(allMeasures));
+        ExcelUtils.createWorksheet1(measureConditionMap);
 
         TreeMap<String, String>[] dividedAtomicAndCompundedArray = divideAtomicAndCompunded(allMeasures);
-
-        //todo 5 : Make MeasureConditionMapping For Atomic Measure from atomicMeasuresStatement
+        //todo Make MeasureConditionMapping For Atomic Measure from atomicMeasuresStatement
         TreeMap<String, String> atomicMeasuresStatementMap = dividedAtomicAndCompundedArray[0];
-
-        TreeMap<String,ArrayList<MeasureConditionMapping>> measureConditionMappingId = Utils.getMeasureConditionIdFromStament(measureConditionMap);
 
 
         //todo 5 : ProductStandardMeasure worksheet
         TreeMap<String,ProductStandardMeasure> productStandardMeasures = atomicMeasuresStatementMap2ProductStandardSheet(atomicMeasuresStatementMap, measureAggregationFunctionMap);
+        Utils.atomicMeasureIdMap(atomicMeasuresStatementMap);
+        ExcelUtils.createWorksheet2(productStandardMeasures);
+
+        //todo 6 : MeasureConditionMapping
+        TreeMap<String,ArrayList<MeasureConditionMapping>> measureConditionMappingId = Utils.getMeasureConditionIdFromStament(measureConditionMap);
+        ExcelUtils.createWorksheet3(measureConditionMappingId);
 
         //todo 7 : compoundedMeasuresStatement worksheet
         TreeMap<String, String> compoundedMeasuresStatementMap = dividedAtomicAndCompundedArray[1];
         HashMap<String,String> compoundedMeasuresIdsStatementMap = Utils.putIdsIntoCompounded(compoundedMeasuresStatementMap);
 
-
 //        HashMap<String, ProductStandardMeasure>[] productStandardMeasureMap = getProductStandardMeasureMap(allMeasures);
         System.out.println("ddvd");
 
 
+    }
+
+    private static String[] getUniqueMeasureFieldConditions(HashMap<String, String> allMeasures) {
+        HashSet<String> uniqueMeasureFieldConditionSet =  new HashSet<>();
+        try {
+            //Create the input stream from the xlsx/xls file
+            FileInputStream fis = new FileInputStream("/home/examin/Videos/new/Axslogic.xlsx");
+            String regex = "(\\w+)\\s?(=|!=|>|<|>=|<=)\\s?(\\w+)|(?i)(\\w+)\\s(in|any|not in|between|not between|like)\\s(.*?)\\)";
+            Pattern pattern = Pattern.compile(regex);
+            Workbook workbook = new XSSFWorkbook(fis);
+            int numberOfSheets = workbook.getNumberOfSheets();
+            for (int i = 0; i < numberOfSheets; i++) {
+                int temIndex= 0;
+                Sheet sheet = workbook.getSheetAt(i);
+                Iterator<Row> rowIterator = sheet.iterator();
+                while (rowIterator.hasNext()) {
+                    String measureFullString = "";
+
+                    //Get the row object
+                    Row row = rowIterator.next();
+
+                    //Every row has columns, get the column iterator and iterate over them
+                    Iterator<Cell> cellIterator = row.cellIterator();
+                    while (cellIterator.hasNext()) {
+                        //Get the Cell object
+                        Cell cell = cellIterator.next();
+                        switch (cell.getColumnIndex()) {
+                            case 1:
+                                measureFullString = cell.getStringCellValue();
+                                Matcher matcher = pattern.matcher(measureFullString);
+                                temIndex++;
+//                                if(temIndex==22)   System.out.println("*"+measureFullString);
+                                while(matcher.find()){
+                                 if(matcher.group(0).contains("THEN"))  {
+                                     System.out.println(matcher.group(0));
+                                     System.out.println("*"+measureFullString);
+                                 }
+                                    uniqueMeasureFieldConditionSet.add(Utils.prepareConditionStr(matcher.group(0)));
+                                }
+
+                        }
+
+                    }
+                }
+                //System.out.println("tempIndex"+ temIndex);
+            }
+        } catch (Exception e) {
+            System.out.println("Choore smabhal excel file main error hai");
+        }
+        ArrayList values = new ArrayList();
+        for(String str : uniqueMeasureFieldConditionSet){
+            values.add(str);
+           // System.out.println(str);
+        }
+        return uniqueMeasureFieldConditionSet.toArray(new String[uniqueMeasureFieldConditionSet.size()]);
     }
 
     private static TreeMap<String, ProductStandardMeasure> atomicMeasuresStatementMap2ProductStandardSheet(TreeMap<String, String> atomicMeasuresStatementMap, HashMap<String, Integer> measureAggregationFunctionMap) {
@@ -103,6 +167,7 @@ public class Measure2table {
                 //were 48
                 //System.out.println(curr);
                 atomicMeasures.put(curr, allMeasures.get(curr));
+
             } else {
                 // todo : Note if something is compounded break it into parts and assign them new fake names and also keep track wee need them
                 //119
@@ -116,7 +181,6 @@ public class Measure2table {
 
     private static HashMap<String, String> getFakeNamedMeasure(String str,TreeMap<String,String> atomicMeasures) {
         HashMap<String, String> atomicMeasure = new HashMap<>();
-        TreeMap<String,Integer> atomicMeasureIdMap = Utils.atomicMeasureIdMap(atomicMeasure);
         Pattern pattern = Pattern.compile("(avg|count|min|max|sum)");
         Matcher matcher = pattern.matcher(str);
         int numOfAgg = 0;
@@ -158,7 +222,7 @@ public class Measure2table {
           //  System.out.println(sb.toString());
             if(!atomicMeasures.containsKey(sb.toString())){
                 atomicMeasure.put(sb.toString(),"Measure"+fakeNamePointer++);
-                Utils.insert2AtomicMeasureIdMap(sb.toString());
+
             }
 
 
@@ -168,7 +232,8 @@ public class Measure2table {
             System.out.println("divide atomic ad compunded error ");
             System.exit(0);
         }
-        //System.out.println(" num of agg " + numOfAgg);
+//        System.out.println(" num of agg " + numOfAgg);
+//        System.out.println(str);
 
         return atomicMeasure;
     }
@@ -181,7 +246,7 @@ public class Measure2table {
             FileInputStream fis = new FileInputStream("/home/examin/Videos/new/Axslogic.xlsx");
             Workbook workbook = new XSSFWorkbook(fis);
             int numberOfSheets = workbook.getNumberOfSheets();
-            for (int i = 1; i < 2 /*numberOfSheets*/; i++) {
+            for (int i = 1; i <2/*numberOfSheets*/; i++) {
                 int index = 1;
                 Sheet sheet = workbook.getSheetAt(i);
                 Iterator<Row> rowIterator = sheet.iterator();
@@ -203,12 +268,13 @@ public class Measure2table {
 
                                 break;
                             case 1:
+
                                 measureFullString = cell.getStringCellValue();
 
                         }
 
                     }
-                    //System.out.printf("%d, : %s\n",index++,measureName);
+                    //System.out.printf("%s\n",measureFullString);
                     //System.out.print((measureMap.containsKey(measureFullString)) ? "*" + measureName + " and " + measureMap.get(measureFullString) + " \n" : "");
                     measureMap.put(measureFullString, measureName);
                 }
@@ -219,11 +285,11 @@ public class Measure2table {
         return measureMap;
     }
 
-    private static HashMap<String, MeasureCondition> getMeasureCondition(HashMap<String, Integer> logicalOperation) {
+    private static HashMap<String, MeasureCondition> getMeasureCondition(HashMap<String, Integer> logicalOperation, String[] values) {
         HashMap<String, MeasureCondition> measureConditions = new HashMap<>();
         // String regex = "(\\w+)\\s{0,1}(=|!=|>|<|>=|<=|in|any|not in|between|not between|like)\\s{0,1}(\\w+)";
         //todo :  replace the next string with connection to xml2csv tool and using https://regex101.com/r/8NJFLE/2/ one can use group 1,2 and 3 to make objects of measureconditions.
-        String[] values = new String[]{"ACCN_IN_FORC = 0", "ACCN_IN_FORC > 0", "ACCN_WITH_CASH_SAL_IN_MONT > 0", "ACCN_WITH_RETL_SALE_IN_MONT > 0", "ACTV_FLAG = 0", "ACTV_FLAG = 1", "APPL_DAT = STAT_DAT", "APPL_DAT_FK = STAT_DAT_FK", "APPL_SCOR < SCOR_CUTF", "APPL_SCOR = 0", "APPL_SCOR > 0", "BUR_SCOR > 0", "DECS_STAT_FK = 1", "DECS_STAT_FK = 2", "DECS_STAT_FK = 3", "DECS_STAT_FK = 4", "DELN_FK < 10", "DELN_FK < 11", "DELN_FK < 12", "DELN_FK < 13", "DELN_FK < 14", "DELN_FK < 3", "DELN_FK < 4", "DELN_FK < 5", "DELN_FK < 6", "DELN_FK < 7", "DELN_FK < 8", "DELN_FK < 9", "DELN_FK < PREV_MONT_DELN_FK", "DELN_FK = 1", "DELN_FK = 10", "DELN_FK = 11", "DELN_FK = 12", "DELN_FK = 13", "DELN_FK = 2", "DELN_FK = 3", "DELN_FK = 4", "DELN_FK = 5", "DELN_FK = 6", "DELN_FK = 7", "DELN_FK = 8", "DELN_FK = 9", "DELN_FK = PREV_MONT_DELN_FK", "DELN_FK > 1", "DELN_FK > 10", "DELN_FK > 11", "DELN_FK > 12", "DELN_FK > 13", "DELN_FK > 2", "DELN_FK > 3", "DELN_FK > 4", "DELN_FK > 5", "DELN_FK > 6", "DELN_FK > 7", "DELN_FK > 8", "DELN_FK > 9", "DELN_FK > PREV_MONT_DELN_FK", "DOCM_DU = 1", "EVR_CASH_EVR_RETL_ACCN > 0", "EVR_CASH_NEVR_RETL_ACCN > 0", "EXCP_INDC = 1", "MVL_ASSOXZ1 > 0", "MVL_ASSOXZ2 > 0", "NEVR_CASH_EVR_RETL_ACCN > 0", "NEVR_CASH_NEVR_RETL_ACCN > 0", "PREV_DAY_ACCN_IN_FORC > 0", "PREV_DAY_DELN_FK = 1", "PREV_DAY_DELN_FK = 10", "PREV_DAY_DELN_FK = 11", "PREV_DAY_DELN_FK = 12", "PREV_DAY_DELN_FK = 13", "PREV_DAY_DELN_FK = 14", "PREV_DAY_DELN_FK = 2", "PREV_DAY_DELN_FK = 3", "PREV_DAY_DELN_FK = 4", "PREV_DAY_DELN_FK = 5", "PREV_DAY_DELN_FK = 6", "PREV_DAY_DELN_FK = 7", "PREV_DAY_DELN_FK = 8", "PREV_DAY_DELN_FK = 9", "PREV_MONT_ACCN_IN_FORC > 0", "PREV_MONT_DELN_FK = 1", "PREV_MONT_DELN_FK = 10", "PREV_MONT_DELN_FK = 11", "PREV_MONT_DELN_FK = 12", "PREV_MONT_DELN_FK = 13", "PREV_MONT_DELN_FK = 14", "PREV_MONT_DELN_FK = 2", "PREV_MONT_DELN_FK = 3", "PREV_MONT_DELN_FK = 4", "PREV_MONT_DELN_FK = 5", "PREV_MONT_DELN_FK = 6", "PREV_MONT_DELN_FK = 7", "PREV_MONT_DELN_FK = 8", "PREV_MONT_DELN_FK = 9", "REVL_FLAG = 1", "REVL_FLAG = 2", "STAT_COD_FK = 12", "STAT_COD_FK = 2", "STAT_COD_FK = 3", "STAT_COD_FK = 4", "STAT_COD_FK = 5", "STAT_COD_FK = 6", "STAT_COD_FK = 9", "TOTL_CONT_EQU_PMT_PLAN_APR > 0", "VINT_FK = MONT_KEY"};
+        //String[] values = new String[]{"ACCN_IN_FORC = 0", "ACCN_IN_FORC > 0", "ACCN_WITH_CASH_SAL_IN_MONT > 0", "ACCN_WITH_RETL_SALE_IN_MONT > 0", "ACTV_FLAG = 0", "ACTV_FLAG = 1", "APPL_DAT = STAT_DAT", "APPL_DAT_FK = STAT_DAT_FK", "APPL_SCOR < SCOR_CUTF", "APPL_SCOR = 0", "APPL_SCOR > 0", "BUR_SCOR > 0", "DECS_STAT_FK = 1", "DECS_STAT_FK = 2", "DECS_STAT_FK = 3", "DECS_STAT_FK = 4", "DELN_FK < 10", "DELN_FK < 11", "DELN_FK < 12", "DELN_FK < 13", "DELN_FK < 14", "DELN_FK < 3", "DELN_FK < 4", "DELN_FK < 5", "DELN_FK < 6", "DELN_FK < 7", "DELN_FK < 8", "DELN_FK < 9", "DELN_FK < PREV_MONT_DELN_FK", "DELN_FK = 1", "DELN_FK = 10", "DELN_FK = 11", "DELN_FK = 12", "DELN_FK = 13", "DELN_FK = 2", "DELN_FK = 3", "DELN_FK = 4", "DELN_FK = 5", "DELN_FK = 6", "DELN_FK = 7", "DELN_FK = 8", "DELN_FK = 9", "DELN_FK = PREV_MONT_DELN_FK", "DELN_FK > 1", "DELN_FK > 10", "DELN_FK > 11", "DELN_FK > 12", "DELN_FK > 13", "DELN_FK > 2", "DELN_FK > 3", "DELN_FK > 4", "DELN_FK > 5", "DELN_FK > 6", "DELN_FK > 7", "DELN_FK > 8", "DELN_FK > 9", "DELN_FK > PREV_MONT_DELN_FK", "DOCM_DU = 1", "EVR_CASH_EVR_RETL_ACCN > 0", "EVR_CASH_NEVR_RETL_ACCN > 0", "EXCP_INDC = 1", "MVL_ASSOXZ1 > 0", "MVL_ASSOXZ2 > 0", "NEVR_CASH_EVR_RETL_ACCN > 0", "NEVR_CASH_NEVR_RETL_ACCN > 0", "PREV_DAY_ACCN_IN_FORC > 0", "PREV_DAY_DELN_FK = 1", "PREV_DAY_DELN_FK = 10", "PREV_DAY_DELN_FK = 11", "PREV_DAY_DELN_FK = 12", "PREV_DAY_DELN_FK = 13", "PREV_DAY_DELN_FK = 14", "PREV_DAY_DELN_FK = 2", "PREV_DAY_DELN_FK = 3", "PREV_DAY_DELN_FK = 4", "PREV_DAY_DELN_FK = 5", "PREV_DAY_DELN_FK = 6", "PREV_DAY_DELN_FK = 7", "PREV_DAY_DELN_FK = 8", "PREV_DAY_DELN_FK = 9", "PREV_MONT_ACCN_IN_FORC > 0", "PREV_MONT_DELN_FK = 1", "PREV_MONT_DELN_FK = 10", "PREV_MONT_DELN_FK = 11", "PREV_MONT_DELN_FK = 12", "PREV_MONT_DELN_FK = 13", "PREV_MONT_DELN_FK = 14", "PREV_MONT_DELN_FK = 2", "PREV_MONT_DELN_FK = 3", "PREV_MONT_DELN_FK = 4", "PREV_MONT_DELN_FK = 5", "PREV_MONT_DELN_FK = 6", "PREV_MONT_DELN_FK = 7", "PREV_MONT_DELN_FK = 8", "PREV_MONT_DELN_FK = 9", "REVL_FLAG = 1", "REVL_FLAG = 2", "STAT_COD_FK = 12", "STAT_COD_FK = 2", "STAT_COD_FK = 3", "STAT_COD_FK = 4", "STAT_COD_FK = 5", "STAT_COD_FK = 6", "STAT_COD_FK = 9", "TOTL_CONT_EQU_PMT_PLAN_APR > 0", "VINT_FK = MONT_KEY"};
 
         int index = 1;
         for (String itr : values) {
@@ -237,17 +303,26 @@ public class Measure2table {
             int active = 1;//todo manupulate it accordingly as active cant be true allways
             String fullString = itr;
             /* Ends MeasureCondition */
-
-            Matcher parts = Pattern.compile("(\\w+)\\s?(=|!=|>|<|>=|<=)\\s?(\\w+)|(\\w+)\\s(in|any|not in|between|not between|like)\\s?(\\w+)").matcher(itr);
-            while (parts.find()) {
+            String regex = "(\\w+)\\s?(=|!=|>|<|>=|<=)\\s?(\\w+)|(?i)(\\w+)\\s(in|any|not in|between|not between|like)\\s(.*?\\))";
+            Matcher parts = Pattern.compile(regex).matcher(itr);
+            if(parts.find()) {
                 // System.out.println("Full match: " + parts.group(0));
-                conditionLeftField = parts.group(1);
-                measureOperationId = logicalOperation.get(parts.group(2));
-                if (Pattern.compile("[-+]?[\\d+]*\\.?[\\d+]").matcher(parts.group(3)).find()) {
-                    conditionRightValue = parts.group(3);
-                } else {
-                    conditionRightField = parts.group(3);
+
+                try {
+                    conditionLeftField = parts.group(1);
+                    measureOperationId = logicalOperation.get(parts.group(2));
+                    if (Pattern.compile("[-+]?[\\d+]*\\.?[\\d+]").matcher(parts.group(3)).find()) {
+                        conditionRightValue = parts.group(3);
+                    } else {
+                        conditionRightField = parts.group(3);
+                    }
                 }
+                catch (NullPointerException e){
+                    measureOperationId = logicalOperation.get(parts.group(5).toUpperCase());
+                    conditionLeftField = parts.group(4);
+                    conditionRightField = parts.group(6);
+                    }
+
             }
             measureConditions.put(itr, new MeasureCondition(conditionId, conditionLeftField, conditionRightField, conditionRightValue, measureOperationId, active, fullString));
         }
@@ -279,7 +354,7 @@ public class Measure2table {
     private static HashMap<String, Integer> getMeasureLogicalOperation() {
         HashMap<String, Integer> measureLogicalOperationsMap = new HashMap<>();
         int index = 1;
-        String[] values = new String[]{"=", "!=", ">", "<", ">=", "<=", "in", "any", "not in", "between", "not between", "like"};
+        String[] values = new String[]{"=", "!=", ">", "<", ">=", "<=", "IN", "ANY", "NOT IN", "BETWEEN", "NOT BETWEEN", "LIKE"};
         for (String itr : values) {
             measureLogicalOperationsMap.put(itr, index++);
         }

@@ -1,8 +1,8 @@
 package com.sport;
 // todo  : populate it soon ,not used yet
-public class MeasureLogicalOperation {
+public class MeasureLogicalOperation implements MeasuresMicro{
     private  int id;
-    private  String logicalOperation;
+    private  String value;
     private  int active;
 
     public int getId() {
@@ -13,12 +13,12 @@ public class MeasureLogicalOperation {
         this.id = id;
     }
 
-    public String getLogicalOperation() {
-        return logicalOperation;
+    public String getValue() {
+        return value;
     }
 
-    public void setLogicalOperation(String logicalOperation) {
-        this.logicalOperation = logicalOperation;
+    public void setValue(String logicalOperation) {
+        this.value = logicalOperation;
     }
 
     public int getActive() {
