@@ -320,7 +320,7 @@ public class Measure2table {
                 catch (NullPointerException e){
                     measureOperationId = logicalOperation.get(parts.group(5).toUpperCase());
                     conditionLeftField = parts.group(4);
-                    conditionRightField = parts.group(6);
+                    conditionRightValue = parts.group(6).replaceAll("\\(|\\)","");
                     }
 
             }
